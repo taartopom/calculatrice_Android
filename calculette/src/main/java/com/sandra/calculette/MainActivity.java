@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
      */
     private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnPlus,btnMoins,btnMulti,btnDiviser,btnEgal,btnVirgule,btnClear;
     private TextView txtResult;
+    private Double nombre1, nombre2;
+    private String operator,chaine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
          */
 
         initButton();
-        txtResult =  findViewById(R.id.txtResult);
+        txtResult = findViewById(R.id.txtResult);
+        nombre1 = 0.0;
+        nombre2 = 0.0;
+        chaine = "";
 
         /**
          * Ajout des écouteur sur les boutons
@@ -44,67 +49,130 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     @Override
     public void onClick(View view) {
         if(view.equals(btn0)){
-            Toast.makeText(this,"0",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"0",Toast.LENGTH_LONG).show();
+            chaine = chaine + "0";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn1)){
-            Toast.makeText(this,"1",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"1",Toast.LENGTH_LONG).show();
+            //nombre1 = Double.parseDouble(chaine);
+            chaine = chaine + "1";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn2)){
-            Toast.makeText(this,"2",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"2",Toast.LENGTH_LONG).show();
+            chaine = chaine + "2";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn3)){
-            Toast.makeText(this,"3",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"3",Toast.LENGTH_LONG).show();
+            chaine = chaine + "3";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn4)){
-            Toast.makeText(this,"4",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"4",Toast.LENGTH_LONG).show();
+            chaine = chaine + "4";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn5)){
-            Toast.makeText(this,"5",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"5",Toast.LENGTH_LONG).show();
+            chaine = chaine + "5";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn6)){
-            Toast.makeText(this,"6",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"6",Toast.LENGTH_LONG).show();
+            chaine = chaine + "6";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn7)){
-            Toast.makeText(this,"7",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"7",Toast.LENGTH_LONG).show();
+            chaine = chaine + "7";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn8)){
-            Toast.makeText(this,"8",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"8",Toast.LENGTH_LONG).show();
+            chaine = chaine + "8";
+            txtResult.setText(chaine);
         }
         if(view.equals(btn9)){
-            Toast.makeText(this,"9",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"9",Toast.LENGTH_LONG).show();
+            chaine = chaine + "9";
+            txtResult.setText(chaine);
         }
         if(view.equals(btnPlus)){
-            Toast.makeText(this,"+",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"+",Toast.LENGTH_LONG).show();
+            nombre1 = Double.parseDouble(txtResult.getText().toString());
+            operator = "+";
+            chaine = "";
+            txtResult.setText(chaine);
         }
         if(view.equals(btnMoins)){
-            Toast.makeText(this,"-",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"-",Toast.LENGTH_LONG).show();
+            nombre1 = Double.parseDouble(txtResult.getText().toString());
+            operator = "-";
+            chaine = "";
+            txtResult.setText(chaine);
         }
         if(view.equals(btnDiviser)){
-            Toast.makeText(this,"`/`",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"`/`",Toast.LENGTH_LONG).show();
+            nombre1 = Double.parseDouble(txtResult.getText().toString());
+            operator = "/";
+            chaine = "";
+            txtResult.setText(chaine);
         }
         if(view.equals(btnMulti)){
-            Toast.makeText(this,"*",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"*",Toast.LENGTH_LONG).show();
+            nombre1 = Double.parseDouble(txtResult.getText().toString());
+            operator = "*";
+            chaine = "";
+            txtResult.setText(chaine);
         }
         if(view.equals(btnVirgule)){
-            Toast.makeText(this,".",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,".",Toast.LENGTH_LONG).show();
+
+                chaine =  chaine+ ".";
+                txtResult.setText(chaine);
+
         }
         if(view.equals(btnClear)){
-            Toast.makeText(this," ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this," ",Toast.LENGTH_LONG).show();
+            operator = "";
+            chaine = "";
+            nombre1 = 0.0;
+            nombre2 = 0.0;
+            txtResult.setText(chaine);
         }
         if(view.equals(btnEgal)){
-            Toast.makeText(this,"=",Toast.LENGTH_LONG).show();
+            switch (operator){
+                case "+":
+                    nombre2 =  nombre1 + Double.parseDouble(chaine);
+
+                    //Toast.makeText(this,"="+nombre2,Toast.LENGTH_LONG).show();
+
+                    txtResult.setText("" + nombre2);
+                    break;
+                case "-":
+                    nombre2 =  nombre1 - Double.parseDouble(chaine);
+
+                    //Toast.makeText(this,"="+nombre2,Toast.LENGTH_LONG).show();
+
+                    txtResult.setText("" + nombre2);
+
+                    break;
+                case "/":
+                    nombre2 =  nombre1 / Double.parseDouble(chaine);
+
+                    txtResult.setText("" + nombre2);
+                    break;
+                case "*":
+                    nombre2 =  nombre1 * Double.parseDouble(chaine);
+
+                    txtResult.setText("" + nombre2);
+                    break;
+
+                default:
+            }
         }
-
-        /**
-         * Ou la méthodes switch case
-         */
-        /*
-        * switch
-        * */
-
-
-
-
     }
     /*------------------------------------------------------------------------------------------*/
         //Méthodes
@@ -131,6 +199,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         btnVirgule = findViewById(R.id.btnVirgule);
         btnClear = findViewById(R.id.btnClear);
         btnEgal = findViewById(R.id.btnEgal);
+
+        txtResult= findViewById(R.id.txtResult);
     }
 
     public void listenerButton(){
