@@ -1,4 +1,4 @@
-package com.sandra.lesvues;
+package com.sandra.calculette;
 
 import org.junit.Test;
 
