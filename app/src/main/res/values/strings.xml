@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Calculatrice</string>
-    <string name="app_test">Bienvenue dans cette formation</string>
+    <string name="nombre1" translatable="false">Nombre 1</string>
+    <string name="nombre2" translatable="false">Nombre 2</string>
+    <string name="operateur" translatable="false">Opérateur</string>
+    <string name="calculer" translatable="false">Calculer</string>
+    <string name="resultat">Resultat</string>
+    <string name="retour">Retour</string>
+
+    <!--  Pour gerer le spinner dans la view         -->
+    <string-array name="op">
+        <item> + </item>
+        <item> - </item>
+        <item> / </item>
+        <item> * </item>
+    </string-array>
 
 </resources>
